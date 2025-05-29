@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "bcg-lists.jpg" %>);">
+  <div class="container d-flex align-items-center flex-column">
+    <h1>My lists</h1>
+    <br>
+    <%= link_to "Add a List", new_list_path, class:"btn" %>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="card-category col m-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "movie_cat.jpg" %>)">
+      <p><%= link_to list.name, list_path(list) %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

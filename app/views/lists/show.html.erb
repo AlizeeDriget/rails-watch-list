@@ -1,0 +1,35 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "movie_cat.jpg" %>);">
+  <div class="container d-flex align-items-center flex-column">
+  <h1><%= @list.name %></h1>
+    <br>
+    <%= link_to "Add a movie", new_list_bookmark_path(@list), type:"button", class:"btn btn-success" %>
+  </div>
+</div>
+
+<div class="container">
+  <%= link_to "View all Lists", lists_path, type:"button", class:"btn btn-danger" %>
+  <br>
+    <div class="row">
+      <% @list.bookmarks.each do |bookmark| %>
+        <%# <div class="col m-5"> %>
+          <div class="card-trip col m-5">
+            <img src="<%= bookmark.movie.poster_url %>" />
+            <div class="card-trip-infos">
+              <div>
+              <div class="d-flex justify-content-between">
+                <h2><%= bookmark.movie.title %></h2>
+                <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
+              </div>
+                <p><%= bookmark.movie.overview %></p>
+                <span><%= bookmark.comment %></span>
+              </div>
+              <h2 class="card-trip-pricing"><%= bookmark.movie.rating %> <i class="fa-solid fa-star" style="color: #FFD43B;"></i></h2>
+            </div>
+          </div>
+        <%# </div> %>
+      <% end %>
+    </div>
+</div>
+<br>
