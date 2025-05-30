@@ -2,5 +2,6 @@
 
 <%= simple_form_for(@list) do |f| %>
   <%= f.input :name %>
+  <%= f.input :cover, as: :file %>
   <%= f.submit %>
 <% end %>
