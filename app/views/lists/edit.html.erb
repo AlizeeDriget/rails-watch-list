@@ -1,0 +1,7 @@
+<h1>Edit <%= @list.name %></h1>
+
+<%= simple_form_for(@list) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :cover, as: :file %>
+  <%= f.submit %>
+<% end %>
